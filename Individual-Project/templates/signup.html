@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-    <title></title>
+	<title></title>
 </head>
-<body style="background-color:#00BBF9;">
-<center><div>
-     <form method="post" action="/">
+<body><center><div>
+	 <form  class="form-inline" method="post" action="/signup">
         <!-- Heading -->
-    </br>
-      </br>
         <h4>
-        Log in to your account
+       Make an account
         </h4>
 
         <!-- Subheading -->
@@ -21,23 +19,28 @@
         </p>
 
         <!-- Email -->
-
-            <label class="rec">Email address*</label>
+      
+            <label>Email address*</label>
+   
                 <input type="email"  name="email" id="emailStr" required>
+     
 
         <!-- Password -->
-            <label class="rec">Password*</label>
-
+     
+            <label>Password*</label>
+    
                 <input type="password"  name="password" minlength="6">
-          {{error}}
-        <!-- Button -->
 
+        {{error}}
+        <!-- Button -->
+        
             <input type="submit"/>
     </form>
-</br>
-      <a href="/signup"><button>signup</button></a></center>
-    </div>
-</center>
+    
+    <a href='/'><button>login</button></a>
 
+
+</div>
+</center>
 </body>
 </html>

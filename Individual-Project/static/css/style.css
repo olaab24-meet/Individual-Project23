@@ -1,0 +1,13 @@
+#form1 {
+  display: none;
+}
+div {
+  width: 700px;
+  border: 15px violet;
+  background-color: #00F5D4;
+  height:250px;
+  border-radius: 25px;
+}
+body{
+  font-family:'Courier New'
+}

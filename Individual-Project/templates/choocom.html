@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
+<script>
+ function myalert(){
+  alert("goodbye!");}
+ function addChild() {
+  document.getElementById('form1').style.display = 'block';}
+
+ 
+</script>
+	<title></title>
+</head>
+<div class="btn-group btn-group-justified">
+  <a href="/" onclick="myalert()" class="btn btn-primary">Quit</a>
+  <a href="#" class="btn btn-primary">About Us (me)</a>
+  
+</div>
+<body>
+<!--<a href="/"><button>home</button></a>
+
+<a href="/"><button onclick="myalert()">Log out</button></a>-->
+ </br>
+<h4>click to view comic</h4>
+</br>
+<a href=/comic0><img src="{{url_for('static',filename='personal_project//o.jpeg')}}" height="300" width="200"></a>
+
+<p>a story about a brave girl with her pet dog, and their heartwarming adventures together</p>
+
+
+<button type="button" value ="Add Child" onclick="addChild();"> Write comment</button>
+<form id="form1" method="post" action="/choose_comic">
+  	<div class="input-group">
+  		<label for="comment">comments?</label>
+  		</br>
+    <input type="text" name="comment" />
+  
+</div>
+<div>
+    <input type="submit" />
+</div>
+</form>
+<ol>
+	{% for comment_id, comment in comments.items() %}
+	<li>{{comment["comment"]}} <a href="/choose_comi/{{comment_id}}">take it back....</a></li>
+	{% endfor %}
+</ol>
+</body>
+</html>
