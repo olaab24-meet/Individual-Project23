@@ -1,52 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-<script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comic Page</title>
+    <script>
  function myalert(){
   alert("goodbye!");}
  function addChild() {
   document.getElementById('form1').style.display = 'block';}
-
- 
 </script>
-	<title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #00BBF9;
+            color: #fff;
+        }
+
+        center {
+            margin-top: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-group a {
+            margin: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #9b5de5;
+            border-radius: 5px;
+        }
+
+        .btn-group a:hover {
+            background-color: #F15BB5;
+        }
+
+        h4 {
+            color: #fee440;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        p {
+            color: #00f5d4;
+            text-align: center;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            margin-top: 20px;
+            background-color: #fee440;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #F15BB5;
+        }
+
+        form {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            color: #00f5d4;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #fee440;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #F15BB5;
+        }
+
+        ol {
+            margin-top: 20px;
+            padding-left: 40px;
+        }
+
+        li {
+            color: #fee440;
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #fee440;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #F15BB5;
+        }
+    </style>
 </head>
-<div class="btn-group btn-group-justified">
-  <a href="/" onclick="myalert()" class="btn btn-primary">Quit</a>
-  <a href="#" class="btn btn-primary">About Us (me)</a>
-  
-</div>
 <body>
-<!--<a href="/"><button>home</button></a>
-
-<a href="/"><button onclick="myalert()">Log out</button></a>-->
- </br>
-<h4>click to view comic</h4>
-</br>
-<a href=/comic0><img src="{{url_for('static',filename='personal_project//o.jpeg')}}" height="300" width="200"></a>
-
-<p>a story about a brave girl with her pet dog, and their heartwarming adventures together</p>
-
-
-<button type="button" value ="Add Child" onclick="addChild();"> Write comment</button>
-<form id="form1" method="post" action="/choose_comic">
-  	<div class="input-group">
-  		<label for="comment">comments?</label>
-  		</br>
-    <input type="text" name="comment" />
-  
-</div>
-<div>
-    <input type="submit" />
-</div>
-</form>
-<ol>
-	{% for comment_id, comment in comments.items() %}
-	<li>{{comment["comment"]}} <a href="/choose_comi/{{comment_id}}">take it back....</a></li>
-	{% endfor %}
-</ol>
+    <div class="btn-group btn-group-justified">
+        <a href="/" onclick="myalert()">Quit</a>
+        <a href="#">About Us (me)</a>
+    </div>
+    <center>
+        <h4>Click to view comic</h4>
+        <a href="/comic0"><img src="{{url_for('static',filename='personal_project//o.jpeg')}}" height="300" width="200"></a>
+        <p>A story about a brave girl with her pet dog, and their heartwarming adventures together</p>
+        <button type="button" value="Add Child" onclick="addChild();">Write comment</button>
+        <form id="form1" method="post" action="/choose_comic">
+            <div class="input-group">
+                <label for="comment">Comments?</label>
+                <br>
+                <input type="text" name="comment" />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+        <ol>
+            {% for comment_id, comment in comments.items() %}
+            <li>{{comment["comment"]}} <a href="/choose_comi/{{comment_id}}">take it back....</a></li>
+            {% endfor %}
+        </ol>
+    </center>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,46 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/style.css')}}">
-	<title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <style>
+        body {
+            background-color: #00BBF9;
+            font-family: Arial, sans-serif;
+        }
+
+        center {
+            margin-top: 100px;
+        }
+
+        .form-container {
+            background-color: #9b5de5;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+        }
+
+        .form-container h4 {
+            color: #F15BB5;
+        }
+
+        .form-container p {
+            color: #fee440;
+        }
+
+        .form-container label {
+            color: #00f5d4;
+        }
+
+        .form-container input[type="email"],
+        .form-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #fee440;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #F15BB5;
+        }
+
+        .form-container a button {
+            background-color: #00f5d4;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .form-container a button:hover {
+            background-color: #9b5de5;
+        }
+    </style>
 </head>
-<body><center><div>
-	 <form  class="form-inline" method="post" action="/signup">
-        <!-- Heading -->
-        <h4>
-       Make an account
-        </h4>
-
-        <!-- Subheading -->
-        <p >
-        Please fill up your information below to sign in.
-        </p>
-
-        <!-- Email -->
-      
-            <label>Email address*</label>
-   
-                <input type="email"  name="email" id="emailStr" required>
-     
-
-        <!-- Password -->
-     
-            <label>Password*</label>
-    
-                <input type="password"  name="password" minlength="6">
-
-        {{error}}
-        <!-- Button -->
-        
-            <input type="submit"/>
-    </form>
-    
-    <a href='/'><button>login</button></a>
-
-
-</div>
-</center>
+<body>
+    <center>
+        <div class="form-container">
+            <form class="form-inline" method="post" action="/signup">
+                <h4>Make an account</h4>
+                <p>Please fill up your information below to sign in.</p>
+                <label>Email address*</label>
+                <input type="email" name="email" id="emailStr" required>
+                <label>Password*</label>
+                <input type="password" name="password" minlength="6">
+                {{error}}
+                <input type="submit" value="Sign Up"/>
+            </form>
+            <a href="/"><button>Login</button></a>
+        </div>
+    </center>
 </body>
 </html>
